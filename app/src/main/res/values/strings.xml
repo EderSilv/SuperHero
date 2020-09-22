@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">SuperHero</string>
     <string name="btChecar">Verificar</string>
-    <string name="Escrever">Digite um(a) personagem e descubra suas habilidades!</string>
+    <string name="btImg">Imagem</string>
+    <string name="Escrever">Digite um(a) personagem para ver sua imagem e estatística!</string>
     <string name="Escrevendo"> </string>
-    <string name="Resultado">As habilidades do(a) personagem escolhido(a) é:</string>
+    <string name="Resultado">PERSONAGEM</string>
     <string name="btVoltar">Voltar</string>
-    <string name="btLista">Heróis e Vilões</string>
+    <string name="btLista">Personagens</string>
     <string name="Informacao">Confira todos eles aqui!</string>
     <string name="intelligence">Inteligência</string>
     <string name="strength">Força</string>
@@ -13,4 +14,13 @@
     <string name="durability">Durabilidade</string>
     <string name="power">Poder</string>
     <string name="combat">Combate</string>
+    <string name="login">LOGIN</string>
+    <string name="usuario">USUARIO</string>
+    <string name="senha">SENHA</string>
+    <string name="entrar">ENTRAR</string>
+    <string name="Historico">dados</string>
+    <string name="salvar">Salvar</string>
+    <string name="voltar">Voltar</string>
+    <string name="localizar">Localizar</string>
+
 </resources>

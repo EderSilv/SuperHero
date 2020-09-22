@@ -14,18 +14,13 @@ import java.net.URL;
 
 public class BuscaSuper {
     private static final String LOG_TAG = BuscaSuper.class.getSimpleName();
-    // private static String poder_URL = "https://superheroapi.com/api/";
-  //  private static final String QUERY_PARAM = "";
-  //  private static final String token = "3125838550828839";
-
-  //  https://www.superheroapi.com/api.php/3125838550828839/search/batman
 
     static String buscapoder(String queryString)
-    {
-        String poder_URL = "https://superheroapi.com/api/3125838550828839/search/"+queryString;
-        HttpURLConnection urlConnection = null;
-        BufferedReader reader = null;
-        String bookJSONString = null;
+{
+    String poder_URL = "https://superheroapi.com/api/3125838550828839/search/"+queryString;
+    HttpURLConnection urlConnection = null;
+    BufferedReader reader = null;
+    String bookJSONString = null;
     try
     {
         /*Uri builtURI = Uri.parse(poder_URL).buildUpon()
@@ -34,6 +29,7 @@ public class BuscaSuper {
                 .appendQueryParameter(QUERY_PARAM, queryString)
                 .build();*/
         //Log.d("asddas", builtURI.toString());
+
         URL requestURL = new URL(poder_URL);
         urlConnection = (HttpURLConnection) requestURL.openConnection();
         urlConnection.setRequestMethod("GET");
@@ -73,7 +69,7 @@ public class BuscaSuper {
             }
         }
     }
-        Log.d(LOG_TAG, bookJSONString);
-        return bookJSONString;
-    }
+    Log.d(LOG_TAG, bookJSONString);
+    return bookJSONString;
+}
 }
