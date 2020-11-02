@@ -13,6 +13,7 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -48,8 +49,17 @@ public class HistoricoActivity extends AppCompatActivity {
         Lista.setHasFixedSize(true);
         Lista.addItemDecoration(new DividerItemDecoration(getApplicationContext(), LinearLayout.VERTICAL));
 
+        //instanciei o historicoAdapter q é uma classe do adapter
         HistoricoAdapter historicoAdapter = new HistoricoAdapter(MainActivity.historicoArray.getArrayHist());
-        Lista.setAdapter(historicoAdapter);
+        Lista.setAdapter(historicoAdapter);                                 //atributo estatico, ou seja, posso usar nas duas classes
+
+
+
+
+
+
+
+
 
         //Utilizando variaveis
         btLocation = findViewById(R.id.bt_location);
@@ -93,7 +103,6 @@ public class HistoricoActivity extends AppCompatActivity {
                                 Locale.getDefault());
 
                         //Iniciar list
-
                         List<Address> addresses = geocoder.getFromLocation(
                                 location.getLatitude(),location.getLongitude(),1
                         );
@@ -135,6 +144,13 @@ public class HistoricoActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void abrirSite(View view)
+    {
+        Uri uri = Uri.parse("https://masp.org.br");
+        Intent it = new Intent(Intent.ACTION_VIEW,uri);
+        startActivity(it);
 
     }
 

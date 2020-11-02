@@ -22,7 +22,7 @@ import com.squareup.picasso.Picasso;
 import java.io.File;
 
 public class Resultado extends AppCompatActivity {
-    private TextView Intelligence, strength, speed, durability, power, combat, personagem;
+    private TextView Intelligence, strength, speed, durability, power, combat, persona;
     private ImageView image;
     private Button botao;
     private String queryString;
@@ -38,34 +38,35 @@ public class Resultado extends AppCompatActivity {
         combat =findViewById(R.id.textView14);
         image =findViewById(R.id.imageSeila);
         botao = findViewById(R.id.button3);
-        personagem = findViewById(R.id.textView3);
+        persona = findViewById(R.id.textView3);
 
         final String Intel, streng, spee, dura, powe, comba, imag, perso;
 
         Bundle bundle = getIntent().getExtras();
-        Intel = bundle.getString("intelligence");
+        final Personagem personagem = (Personagem) bundle.getSerializable("personagem");
+        /*Intel = bundle.getString("intelligence");
         streng = bundle.getString("strength");
         spee = bundle.getString("speed");
         dura = bundle.getString("durability");
         powe = bundle.getString("power");
         comba = bundle.getString("combat");
         imag = bundle.getString("image");
-        perso = bundle.getString("Levar");
+        perso = bundle.getString("Levar");*/
 
 
 
-        Picasso.get().load(imag).into(image);
-        Intelligence.setText(Intel);
-        strength.setText(streng);
-        speed.setText(spee);
-        durability.setText(dura);
-        power.setText(powe);
-        combat.setText(comba);
-        personagem.setText(perso);
+        Picasso.get().load(personagem.getImage()).into(image);
+        Intelligence.setText(personagem.getIntelligence());
+        strength.setText(personagem.getStrength());
+        speed.setText(personagem.getSpeed());
+        durability.setText(personagem.getDurability());
+        power.setText(personagem.getPower());
+        combat.setText(personagem.getCombat());
+        persona.setText(personagem.getNome());
         botao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createDir(imag);
+                createDir(personagem.getImage());
             }
         });
     }
@@ -86,7 +87,7 @@ public class Resultado extends AppCompatActivity {
             DownloadManager.Request request = new DownloadManager.Request(downloadUri);
             request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE)
                     .setAllowedOverRoaming(false)
-                    .setTitle("" + System.currentTimeMillis())
+                    .setTitle("Personagens" + System.currentTimeMillis())
                     .setMimeType("image/jpeg")
                     .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
                     .setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, File.separator + "/SuperHero/" + System.currentTimeMillis());
@@ -118,11 +119,11 @@ public class Resultado extends AppCompatActivity {
         }
     }
 
-    public void Pesquisar(View view) {
+/*    public void Pesquisar(View view) {
         Uri uri = Uri.parse("https://www.google.com/search?q" + personagem);
         Intent it = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(it);
-    }
+    }*/
 
     public void Voltar(View view) {
         Intent it = new Intent(this, MainActivity.class);

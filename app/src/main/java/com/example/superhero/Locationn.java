@@ -64,7 +64,7 @@ public class Locationn extends AppCompatActivity {
     }
 
     private void getLocation() {
-
+        //classe pra pegar localização
         fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
             @Override
             public void onComplete(@NonNull Task<Location> task) {
@@ -101,10 +101,10 @@ public class Locationn extends AppCompatActivity {
                         ));
 
                         //Set Local na TextView
-                        textView4.setText(Html.fromHtml(
-                                "<font color='#6200EE'><b>Locality</b><br></font>"
-                                        + addresses.get(0).getLocality()
-                        ));
+//                        textView4.setText(Html.fromHtml(
+//                                "<font color='#6200EE'><b>Locality</b><br></font>"
+//                                        + addresses.get(0).getLocality()
+//                        ));
 
                         //Set Address na TextView
                         textView5.setText(Html.fromHtml(

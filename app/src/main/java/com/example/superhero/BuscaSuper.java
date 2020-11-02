@@ -57,6 +57,7 @@ public class BuscaSuper {
         e.printStackTrace();
     }
     finally {
+
         // fecha a conexão e o buffer.
         if (urlConnection != null) {
             urlConnection.disconnect();
